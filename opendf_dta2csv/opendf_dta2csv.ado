@@ -29,8 +29,8 @@ program define opendf_dta2csv
 
 	*if output_dir is not temp dir or if we are in linux, we add / to the path
 	if ("`output_dir'" != "`c(tmpdir)'" | "`c(os)'"=="Unix"){
-      		local output_dir = "`output_dir'/"
-    	}
+      	local output_dir = "`output_dir'/"
+    }
 	*Save dataset as data.csv
 	quietly: export delimited "`output_dir'data",  nolabel replace quote
 	
@@ -93,6 +93,8 @@ program define opendf_dta2csv
 			}
 		}
 		gen url="`url'"
+
+
 		
 		*order columns (check whether label/description without language tag exist)
 		capture confirm variable description, exact
@@ -114,10 +116,10 @@ program define opendf_dta2csv
 		
 		order study dataset `_label_' `_description_' url
 	}
-	*drop empty labels and descriptions columns
+	*drop empty labels, descriptions, and url columns
 	foreach var of varlist * {
 		qui replace `var' = "" if `var'=="."
-        if ("`var'" =="label" | "`var'" == "description"){
+        if ("`var'" =="label" | "`var'" == "description" | "`var'" == "url"){
             qui count if missing(`var')
 		    if (`=r(N)' == c(N)) drop `var'
         }     
