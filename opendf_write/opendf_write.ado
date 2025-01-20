@@ -38,7 +38,7 @@ program define opendf_write
     if (`"`input'"' != "") {
       capture quietly use "`input'", clear
       if _rc!=0{
-        if _rc==601 | _rc==610{
+        if (_rc==601 | _rc==610) {
           di as error "Error: `input' is not a valid Stata dataset (.dta). Insert (the path to a) valid dataset (.dta) or leave argument 'input' empty to use the dataset loaded in Stata."
           exit _rc
         }

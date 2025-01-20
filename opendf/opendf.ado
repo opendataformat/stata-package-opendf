@@ -57,4 +57,9 @@ program define opendf, rclass
 	if ("`1'"=="zip2csv"){
 		opendf_zip2csv, input_zip(`input_zip') output_dir(`output_dir') languages(`languages') `verbose'
 	}
+
+	if ("`1'"!="read" & "`1'"!="write" & "`1'"!="installpython" & "`1'"!="removepython" & "`1'"!="removepython" & "`1'"!="docu" & "`1'"!="csv2dta" & "`1'"!="csv2zip" & "`1'"!="dta2csv" & "`1'"!="zip2csv"){
+		display as error "unknown subcommand `1'"
+	 	exit 199
+	}
 end
