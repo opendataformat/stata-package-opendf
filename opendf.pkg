@@ -1,22 +1,31 @@
-v 0.1
+v 3
 d opendf
 d
-d The opendf package helps to work with data in the opendf format, an open source data format that enables to store plenty of meta data. 
+d The opendataformat package is specifically designed to facilitate the seamless utilization of the Open Data Format.
+d It offers functionality to import data from the Open Data Format into a Stata data frame, as well as export data from a Stata data frame (.dta) to the Open Data Format.
+d Additionally, you can easily access comprehensive information about the dataset and variables.
+d This user-friendly approach ensures convenient exploration and utilization of dataset information within your preferred environment.
+d For more comprehensive insights into the Open Data Format specification, please visit: https://git.soep.de/opendata/specification
+d This resource provides detailed documentation and profiles illustrating the storage locations of attributes within the Open Data Format, as well as within the native formats to which they will be converted.
 d The data is stored in a zip-folder containing a csv-file with the data and a xml-file with the meta data.
 d The package provides three main functions
-d opendf_read loads a dataset in the opendf-format into stata.
-d (see https://github.com/THartl1/opendf/) 
+d opendf_read loads a dataset in the opendf-format into Stata.
+d opendf_write saves a dataset from Stata in the opendf-format
+d opendf_docu displays metadata of the dataset or a variable
+d (see https://github.com/thartl-diw/opendf/) 
 d
-d Requires: Stata version 15
-d Requires: Python (Versions depends on Stata version, for Stata version 16 or 17, Python version 3.9 or lower is needed, for Stata 18, newer Python versions work as well)
+d Requires: Stata version 16
+d Requires: Python 3
 d
-d Distribution-Date: 20240301
+d Distribution-Date: 20240417
 d
 d Author: Tom Hartl
 d Support: thartl@diw.de
 
-* version 0.1 01 March 2024 - pre release
+* opendf package version 2.0.3
 
+f opendf/opendf.ado
+f opendf/opendf.sthlp
 f opendf_read/opendf_read.ado
 f opendf_read/opendf_read.sthlp
 f opendf_write/opendf_write.ado
@@ -25,12 +34,16 @@ f opendf_docu/opendf_docu.ado
 f opendf_docu/opendf_docu.sthlp
 f opendf_installpython/opendf_installpython.ado
 f opendf_installpython/opendf_installpython.sthlp
-f opendf_xml2csv/xml2csv.ado
-f opendf_csv2dta/csv2dta.ado
-f opendf_csv2dta/csv2dta.sthlp
-f opendf_dta2csv/dta2csv.ado
-f opendf_csv2xml/csv2xml.ado
+f opendf_removepython/opendf_removepython.ado
+f opendf_removepython/opendf_removepython.sthlp
+f opendf_zip2csv/opendf_zip2csv.ado
+f opendf_zip2csv/opendf_zip2csv.sthlp
+f opendf_csv2dta/opendf_csv2dta.ado
+f opendf_csv2dta/opendf_csv2dta.sthlp
+f opendf_dta2csv/opendf_dta2csv.ado
+f opendf_dta2csv/opendf_dta2csv.sthlp
+f opendf_csv2zip/opendf_csv2zip.ado
+f opendf_csv2zip/opendf_csv2zip.sthlp
+f example_data/soep_data.zip
 f python/xml2csv.py
 f python/csv2xml.py
-f python/exec_xml2csv.py
-f python/exec_csv2xml.py
