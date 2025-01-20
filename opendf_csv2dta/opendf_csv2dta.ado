@@ -16,7 +16,7 @@
 
 -----------------------------------------------------------------------------------*/
 *! opendf_csv2dta.ado: loads data from csvs including meta data to build a Stata dataset
-*! version 2.0.2 - 28 August 2024 - SSC Initial Release
+*! version 2.0.3
 
 program define opendf_csv2dta 
 	version 16
@@ -105,7 +105,7 @@ program define opendf_csv2dta
 
 
 	*Directory where to save csvs
-	quietly: import delimited "`csv_loc'/dataset.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(10000) asdouble `clear'
+	quietly: import delimited "`csv_loc'/dataset.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(unlimited) asdouble `clear'
 	*remove gravis (`) from strings to avert errors
 	foreach var of varlist _all{
 		local _variable_type : type `var'
@@ -125,7 +125,7 @@ program define opendf_csv2dta
 	}
 
 
-	quietly: import delimited "`csv_loc'/variables.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(10000) asdouble clear
+	quietly: import delimited "`csv_loc'/variables.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(unlimited) asdouble clear
 	*remove gravis (`) from strings to avert errors
 	foreach var of varlist _all{
 		local _variable_type : type `var'
@@ -150,7 +150,7 @@ program define opendf_csv2dta
 	}
 	 	
 	*Import variable value labels
-	quietly: import delimited "`csv_loc'/categories.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(10000) asdouble clear
+	quietly: import delimited "`csv_loc'/categories.csv", varnames(1) case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(unlimited) asdouble clear
 	*remove gravis (`) from strings to avert errors
 	foreach var of varlist _all{
 		local _variable_type : type `var'
@@ -236,7 +236,7 @@ program define opendf_csv2dta
 	
 
 	*Import Data
-	quietly: import delimited "`csv_loc'/data.csv", varnames(1) rowrange(`rowrange') colrange(`colrange') case(preserve) encoding(UTF-8) asdouble clear	
+	quietly: import delimited "`csv_loc'/data.csv", varnames(1) rowrange(`rowrange') colrange(`colrange') case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(unlimited) asdouble clear	
 	*Indicates whether a default language exists (if there are descriptions or labels without language tag)
 	local default_exists=0
 	local language_counter=0
