@@ -119,7 +119,7 @@ program define opendf_dta2csv
 	*drop empty labels, descriptions, and url columns
 	foreach var of varlist * {
 		qui replace `var' = "" if `var'=="."
-        if ("`var'" =="label" | "`var'" == "description" | "`var'" == "url"){
+        if ("`var'" =="label" | "`var'" == "description"){
             qui count if missing(`var')
 		    if (`=r(N)' == c(N)) drop `var'
         }     
