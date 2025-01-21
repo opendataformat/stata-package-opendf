@@ -12,11 +12,11 @@ def pretty_print(current, parent=None, index=-1, depth=0):
     pretty_print(node, current, i, depth + 1)
   if parent is not None:
     if index == 0:
-      parent.text = '\n' + ('\t' * depth)
+      parent.text = '\n' + ('  ' * depth)
     else:
-      parent[index - 1].tail = '\n' + ('\t' * depth)
+      parent[index - 1].tail = '\n' + ('  ' * depth)
     if index == len(parent) - 1:
-      current.tail = '\n' + ('\t' * (depth - 1))
+      current.tail = '\n' + ('  ' * (depth - 1))
 
 # get head of csv file              
 def header(input_dir,csv_file):
