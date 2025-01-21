@@ -286,7 +286,6 @@ program define opendf_csv2dta
 	quietly: import delimited "`csv_loc'/data.csv", varnames(1) rowrange(`rowrange') colrange(`colrange') case(preserve) encoding(UTF-8) bindquote(strict) maxquotedrows(unlimited) asdouble clear	
 	*Indicates whether a default language exists (if there are descriptions or labels without language tag)
 	* Add all metadata languages to label languages
-	di "`_label_languages'"
 	foreach lang in `_label_languages' {
 		capture label language `lang', new   // Add the language if it doesn't already exist
 		if "`lang'" != "default" | _language_default_exists == 0{
