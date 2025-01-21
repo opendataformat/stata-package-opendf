@@ -288,7 +288,7 @@ program define opendf_csv2dta
 	* Add all metadata languages to label languages
 	foreach lang in `_label_languages' {
 		capture label language `lang', new   // Add the language if it doesn't already exist
-		if "`lang'" != "default" | _language_default_exists == 0{
+		if "`lang'" != "default" & _language_default_exists == 0{
 			capture label language default, delete
 		}
 	}
