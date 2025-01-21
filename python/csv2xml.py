@@ -182,10 +182,9 @@ def csv2xml(input_dir, output_dir):
                     varFormat.attrib['type'] = row['type']                
                 # Variable URL
                 if 'url' in list_keys:    
-                  if not row['url'] == '':
-                    notes = ET.SubElement(var, 'notes')
-                    ExtLink = ET.SubElement(notes, 'ExtLink')
-                    ExtLink.attrib['URI'] = row['url']
+                  notes = ET.SubElement(var, 'notes')
+                  ExtLink = ET.SubElement(notes, 'ExtLink')
+                  ExtLink.attrib['URI'] = row['url']
                 
     # write xml
     temp_output_dir=input_dir+'/'+output_dir_name
