@@ -447,5 +447,5 @@ program define opendf_csv2dta
 	if (`_valuelabelforstringvariable'==1 & `verboseit'==1) di `"{red: Warning: Some Value Labels were not assigned because Variable is a string Variable. For further information display global {it:warnings}}"'
 	if (`_varlabelmissing'==1 & `verboseit'==1) di `"{red: Warning: No Label defined for some Variables for some Languages. For further information display global {it:warnings}}"'
 	if (`_valuelabelmissing'==1 & `verboseit'==1) di `"{red: Warning: No Value Labels defined for some Variables. For further information display global {it:warnings}}"'
-	
+
 end
