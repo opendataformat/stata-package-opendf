@@ -288,6 +288,9 @@ program define opendf_csv2dta
 	* Add all metadata languages to label languages
 	foreach lang in `_label_languages' {
 		capture label language `lang', new   // Add the language if it doesn't already exist
+		if "`lang'" != "default" | _language_default_exists == 0{
+			capture label language default, delete
+		}
 	}
 
 	* count the languages and define the language1 to languageN locals with the languages
@@ -432,25 +435,8 @@ program define opendf_csv2dta
 		}	
 	}
 	
-	* remove default if no metadata exists for default language and 
-	if (_language_default_exists!=1 & `language_counter'>1){
-		capture label language default, delete
-		capture label language "en"
-		if _rc != 0{
-			if "`_language1'" != "default" {
-				qui label language `_language1'
-			}
-			else{
-				if "`_language2'" != "" {
-					qui label language `_language2'
-				}
-			}
-		}	
-	}
-	else {
-		if (`verboseit'==1 & _language_default_exists!=1) {
-			di "{red: Your dataset contains labels and/or descriptions without a language tag. The labels have been assigned to the language default.}"
-		}
+	if (`verboseit'==1 & _language_default_exists!=1) {
+		di "{red: Your dataset contains labels and/or descriptions without a language tag. The labels have been assigned to the language default.}"
 	}
 	if `saveit'==1 {
 		quietly: save `"`save'"', `replace'
