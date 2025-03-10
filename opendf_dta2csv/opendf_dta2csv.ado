@@ -21,11 +21,15 @@
 
 program define opendf_dta2csv 
 	version 16
-    	syntax, output_dir(string) [languages(string) input(string)]
+    	syntax, output_dir(string) [languages(string) input(string) odf_version(string)]
 	if (c(N) == 0 & c(k)==0) {
     	di as error "Dataset is empty."
     	exit
   	}
+	
+	if "`odf_version'" == ""{
+		local odf_version "1.1.0"
+	}
 
 	*if output_dir is not temp dir or if we are in linux, we add / to the path
 	if ("`output_dir'" != "`c(tmpdir)'" | "`c(os)'"=="Unix"){
