@@ -382,6 +382,7 @@ program define opendf_dta2csv
 							else {
 								replace label_`l' in `_row_categories_out'=`"`_lbl_`l'`i''"'
 							}
+							local _lbl_`l'`i' = ""
 						}
 					}
 					save `categoriestempfile', replace
