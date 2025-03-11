@@ -16,7 +16,7 @@
 
 -----------------------------------------------------------------------------------*/
 *! opendf.ado: provides programs to work with opendf data format
-*! version 2.0.3
+*! version 2.1.0
 
 program define opendf, rclass 
 	version 16

@@ -16,7 +16,7 @@
 
 -----------------------------------------------------------------------------------*/
 *! opendf_dta2csv.ado: loads data from csvs including meta data to build a Stata dataset
-*! version 2.0.3
+*! version 2.1.0
 
 
 program define opendf_dta2csv 
