@@ -16,7 +16,7 @@
 
 -----------------------------------------------------------------------------------*/
 *! opendf_csv2dta.ado: loads data from csvs including meta data to build a Stata dataset
-*! version 2.0.3
+*! version 2.1.0
 
 program define opendf_csv2dta 
 	version 16
@@ -437,7 +437,7 @@ program define opendf_csv2dta
 		}	
 	}
 	
-	if (`verboseit'==1 & _language_default_exists!=1) {
+	if (`verboseit'==1 & _language_default_exists==1) {
 		di "{red: Your dataset contains labels and/or descriptions without a language tag. The labels have been assigned to the language default.}"
 	}
 	if `saveit'==1 {

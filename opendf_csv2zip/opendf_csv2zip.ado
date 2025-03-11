@@ -15,7 +15,7 @@
 
 -----------------------------------------------------------------------------------*/
 *! opendf_csv2zip.ado: builds opendf_zip-file containing data.csv and metadata.xml from 4 csvs
-*! version 2.0.3
+*! version 2.1.0
 
 program define opendf_csv2zip 
 	  version 16
