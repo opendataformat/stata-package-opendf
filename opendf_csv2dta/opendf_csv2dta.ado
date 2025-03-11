@@ -20,8 +20,10 @@
 
 program define opendf_csv2dta 
 	version 16
-	syntax, csv_loc(string) [ROWRange(string) COLRange(string) SAVE(string) REPLACE CLEAR VERBOSE]
-	
+	syntax, csv_loc(string) [ROWRange(string) COLRange(string) odf_version(string) SAVE(string) REPLACE CLEAR VERBOSE]
+	if "`odf_version'" == ""{
+		local odf_version = "1.0.0"
+	}
 	local replaceit 0
 		if (`"`replace'"' != "") local replaceit 1
 		
