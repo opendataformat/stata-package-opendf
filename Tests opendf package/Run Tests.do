@@ -13,9 +13,9 @@ capture program drop opendf_installpython
 capture program drop opendf
 
 *set working directory to folder containing a subfolder with the testscripts and the subfolder containing the datasets for the testscripts
-cd "C:\Users\thartl\OneDrive - DIW Berlin\Open Data Format Project\Stata\Testscripts"
+cd "C:\Users\thartl\OneDrive - DIW Berlin\Open Data Format Project\stata-package_from_github\Tests opendf package"
 *cd "C:\Users\User\OneDrive - DIW Berlin\Open Data Format Project\Stata\Testscripts"
-global output_folder "C:\Users\thartl\OneDrive - DIW Berlin\Open Data Format Project\Stata\Testscripts\Output Testscripts"
+global output_folder "C:\Users\thartl\OneDrive - DIW Berlin\Open Data Format Project\stata-package_from_github\Tests opendf package\Output Testscripts"
 *global output_folder "C:\Users\User\OneDrive - DIW Berlin\Open Data Format Project\Stata\Testscripts\Output Testscripts"
 *Ensure Output testscripts folder is empty
 shell rmdir "$output_folder" /s /q

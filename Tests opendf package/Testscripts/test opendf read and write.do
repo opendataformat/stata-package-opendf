@@ -31,6 +31,7 @@ program define test_opendf_read_and_write
 		file read `fh' line
 		*local original_csv = `"`macval(line)'"'
 		local original_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -48,6 +49,7 @@ program define test_opendf_read_and_write
 		file open `fh' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh' line
+		local original_xml_linenum = 0
 		while r(eof)==0 {
 			local original_xml_linenum = `original_xml_linenum' + 1
 			*noisily display %4.0f `original_xml_linenum' _asis `"  `macval(line)'"'
@@ -84,6 +86,7 @@ program define test_opendf_read_and_write
 		file read `fh2' line
 		*local new_csv = `"`macval(line)'"'
 		local new_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -99,6 +102,7 @@ program define test_opendf_read_and_write
 		file open `fh2' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh2' line
+		local new_xml_linenum = 0
 		while r(eof)==0 {
 			local new_xml_linenum = `new_xml_linenum' + 1
 			*noisily display %4.0f `new_xml_linenum' _asis `"  `macval(line)'"'
@@ -158,6 +162,7 @@ program define test_opendf_read_and_write
 		// Read the entire file into a single string
 		file read `fh' line
 		local original_csv = `"`macval(line)'"'
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -282,6 +287,7 @@ program define test_opendf_read_and_write
 		file read `fh' line
 		*local original_csv = `"`macval(line)'"'
 		local original_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -299,6 +305,7 @@ program define test_opendf_read_and_write
 		file open `fh' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh' line
+		local original_xml_linenum = 0
 		while r(eof)==0 {
 			local original_xml_linenum = `original_xml_linenum' + 1
 			*noisily display %4.0f `original_xml_linenum' _asis `"  `macval(line)'"'
@@ -335,6 +342,7 @@ program define test_opendf_read_and_write
 		file read `fh2' line
 		*local new_csv = `"`macval(line)'"'
 		local new_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -350,6 +358,7 @@ program define test_opendf_read_and_write
 		file open `fh2' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh2' line
+		local new_xml_linenum = 0
 		while r(eof)==0 {
 			local new_xml_linenum = `new_xml_linenum' + 1
 			*noisily display %4.0f `new_xml_linenum' _asis `"  `macval(line)'"'
@@ -409,6 +418,7 @@ program define test_opendf_read_and_write
 		file read `fh' line
 		*local original_csv = `"`macval(line)'"'
 		local original_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -426,6 +436,7 @@ program define test_opendf_read_and_write
 		file open `fh' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh' line
+		local original_xml_linenum = 0
 		while r(eof)==0 {
 			local original_xml_linenum = `original_xml_linenum' + 1
 			*noisily display %4.0f `original_xml_linenum' _asis `"  `macval(line)'"'
@@ -462,6 +473,7 @@ program define test_opendf_read_and_write
 		file read `fh2' line
 		*local new_csv = `"`macval(line)'"'
 		local new_csv = ""
+		local linenum = 0
 		while r(eof)==0 {
 			local linenum = `linenum' + 1
 			*display %4.0f `linenum' _asis `"  `macval(line)'"'
@@ -477,6 +489,7 @@ program define test_opendf_read_and_write
 		file open `fh2' using "`filepath'", read text
 		// Read the entire file into a single string
 		file read `fh2' line
+		local new_xml_linenum = 0
 		while r(eof)==0 {
 			local new_xml_linenum = `new_xml_linenum' + 1
 			*noisily display %4.0f `new_xml_linenum' _asis `"  `macval(line)'"'

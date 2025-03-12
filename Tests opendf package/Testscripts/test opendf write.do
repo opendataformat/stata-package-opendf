@@ -584,7 +584,7 @@ program define test_opendf_write
 		}
 
 		if("`_label1'"!="Does not apply" | "`_label2'"!="." | "`_label3'"!="No Answer" | "`_label4'"!="Always" | "`_label5'"!="8" | "`_label6'"!="Always"){
-			di as error "Error in Test4 opendf write: Value Labels not correct."
+			di as error "Error in Test4 opendf write: English Value Labels not correct."
 			local error_occured4="TRUE"
 		}
 
@@ -610,6 +610,22 @@ program define test_opendf_write
 		local _label6= "`:label (bap9001) `_val6''"
 
 		local _val7=name[20]
+	
+	
+		di "`_label1'"
+		di "`_label2'"
+		di "`_label3'"
+		di "`_label4'"
+		di "`_label5'"
+		di "`_label6'"
+
+		di "`_val1'"
+		di "`_val2'"
+		di "`_val3'"
+		di "`_val4'"
+		di "`_val5'"
+		di "`_val6'"
+		di "`_val7'"
 
 		if(`_val1'!=-2 | `_val2'!=. | `_val3'!=-1 | `_val4'!=1 | `_val5'!=8 | `_val6'!=1 | "`_val7'"!="Anton"){
 			di as error "Error in Test4 opendf write: Values not correct."
@@ -617,8 +633,8 @@ program define test_opendf_write
 		}
 
 
-		if("`_label1'"!="trifft nicht zu" | "`_label2'"!="." | "`_label3'"!="keine Angabe" | "`_label4'"!="Immer" | "`_label5'"!="8" | "`_label6'"!="Immer"){
-			di as error "Error in Test4 opendf write: Value Labels not correct."
+		if("`_label1'"!="trifft nicht zu" | "`_label2'"!="." | "`_label3'"!="-1" | "`_label4'"!="Immer" | "`_label5'"!="8" | "`_label6'"!="Immer"){
+			di as error "Error in Test4 opendf write: German Value Labels not correct."
 			local error_occured4="TRUE"
 		}
 
