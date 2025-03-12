@@ -39,8 +39,10 @@ def load(input_zip, output_dir):
   if os.path.isfile(version_path):
     with open(version_path, "r") as f:
       vers_file = json.load(f)  # Load JSON content
-    odf_version = vers_file['version']
-    metadatafile = vers_file['files']['metadata']
+    # Get the version if it is in the versionfile or otherwise assume '1.1.0'
+    odf_version = vers_file.get('version', '1.1.0')
+    # Get the name of metadata file or otherwise assume 'metadata.xml'
+    metadatafile = vers_file.get('files', {'metadata': 'metadata.xml'}).get('metadata', 'metadata.xml')
   else:
     odf_version = '1.0.0'
     metadatafile = 'metadata.xml'
