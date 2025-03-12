@@ -206,7 +206,7 @@ def csv2xml(input_dir, output_dir, odf_version):
   export_files = ["metadata.xml"]
   if export_data == "yes":
     export_files.append("data.csv")
-  if (odf_version.split('.')[0] == '1' and int(odf_version.split('.')[1]) >=1 or int(odf_version.split('.')[0]) > 2):
+  if ((odf_version.split('.')[0] == '1' and int(odf_version.split('.')[1]) >=1) or int(odf_version.split('.')[0]) >= 2):
     export_files.append("odf-version.json")
   print(input_dir)
   print(output_dir)
